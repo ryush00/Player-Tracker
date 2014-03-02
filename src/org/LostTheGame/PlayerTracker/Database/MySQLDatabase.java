@@ -122,7 +122,7 @@ public class MySQLDatabase extends Database {
 			ps	= conn.prepareStatement(
 					"SELECT `ip` " +
 					"FROM `"+ table + "` " +
-					"WHERE LOWER(`accountname`) LIKE ? " +
+					"WHERE LOWER(`accountname`) = ? " +
 					"ORDER BY `time` DESC");
 			ps.setString ( 1, playername.toLowerCase() );
 			rs = ps.executeQuery();
@@ -200,7 +200,7 @@ public class MySQLDatabase extends Database {
 			ps	= conn.prepareStatement(
 					"SELECT `accountname` " +
 					"FROM `"+ table + "` " +
-					"WHERE LOWER(`ip`) LIKE ? " +
+					"WHERE `ip` = ? " +
 					"ORDER BY `time` DESC");
 			ps.setString ( 1, ipaddr );
 			rs = ps.executeQuery();
@@ -242,8 +242,8 @@ public class MySQLDatabase extends Database {
 			ps = conn.prepareStatement(
 					"SELECT `id` " +
 					"FROM `"+ table + "` " +
-					"WHERE `ip` LIKE ? " +
-					"AND LOWER(`accountname`) LIKE ?");
+					"WHERE `ip` = ? " +
+					"AND LOWER(`accountname`) = ?");
 			ps.setString ( 1, IP );
 			ps.setString ( 2, playername );
 			rs = ps.executeQuery();
@@ -261,7 +261,7 @@ public class MySQLDatabase extends Database {
 				ps	= conn.prepareStatement(
 						"UPDATE `"+ table +"` " +
 						"SET `time` = CURRENT_TIMESTAMP " +
-						"WHERE LOWER(`accountname`) LIKE ? " +
+						"WHERE LOWER(`accountname`) = ? " +
 						"AND `ip` = ?");
 				ps.setString ( 1, playername );
 				ps.setString ( 2, IP );
