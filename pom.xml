@@ -59,9 +59,9 @@
     </dependency>
     
     <dependency>
-      <groupId>Ultrabans</groupId>
-      <artifactId>Ultrabans</artifactId>
-      <version>3.5.1</version>
+      <groupId>ultrabans</groupId>
+      <artifactId>ultrabans</artifactId>
+      <version>3.1.0</version>
     </dependency>
 
     <dependency>
