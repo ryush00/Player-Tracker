@@ -15,7 +15,6 @@ import java.util.logging.Logger;
 
 import javax.naming.NamingException;
 
-import org.LostTheGame.PlayerTracker.Banlist.BanHammerBanlist;
 import org.LostTheGame.PlayerTracker.Banlist.Banlist;
 import org.LostTheGame.PlayerTracker.Banlist.CommandBookBanlist;
 import org.LostTheGame.PlayerTracker.Banlist.EssentialsBanlist;
@@ -226,11 +225,6 @@ public class PlayerTracker extends JavaPlugin {
         	log.info("[P-Tracker] UltraBans-Lite detected, attempting to use as banlist."); 
         	this.banlistEnabled = true;
         	this.banlist = new UltraBansBanlist( this, "UltraBanLite" );
-        }
-        else if ( this.getServer().getPluginManager().isPluginEnabled("BanHammer") ) {
-        	log.info("[P-Tracker] BanHammer detected, attempting to use as banlist."); 
-        	this.banlistEnabled = true;
-        	this.banlist = new BanHammerBanlist( this );
         }
     	// Essentials/Commandbook have lowest priority, because they are not ban-specific plugins
         else if ( this.getServer().getPluginManager().isPluginEnabled("Essentials") ) {
